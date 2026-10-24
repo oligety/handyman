@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import Layout from '../layouts/Layout.astro';
+import { GET } from '../pages/api/health';
 
 describe('Layout component', () => {
   it('renders title and default slot content', async () => {
@@ -11,5 +12,16 @@ describe('Layout component', () => {
 
     expect(result).toContain('<title>Astro Basics</title>');
     expect(result).toContain('<h1>Hello Handyman</h1>');
+  });
+});
+
+describe('API health endpoint (SSR)', () => {
+  it('returns ok status and json content', async () => {
+    const response = await GET();
+    expect(response.status).toBe(200);
+    const data = await response.json();
+    expect(data.status).toBe('ok');
+    expect(data.mode).toBe('ssr');
+    expect(data.timestamp).toBeDefined();
   });
 });
