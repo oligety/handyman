@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1
 
 # Stage 1: Base
-FROM node:22-alpine AS base
+FROM node:24-alpine AS base
 WORKDIR /app
 
 # Stage 2: Install all dependencies (for build)
