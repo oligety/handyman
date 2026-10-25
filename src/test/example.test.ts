@@ -13,6 +13,7 @@ describe('Layout component', () => {
 
     expect(result).toContain('<title>M5 Handyman');
     expect(result).toContain('Central Coast');
+    expect(result).toContain('Skip to main content');
     expect(result).toContain('<h1>Hello Handyman</h1>');
     expect(result).toContain('rel="canonical"');
     expect(result).toContain('HomeAndConstructionBusiness');
@@ -31,6 +32,9 @@ describe('Welcome landing page component', () => {
     expect(result).toContain('M5');
     expect(result).toContain('Handyman');
     expect(result).toContain('Central Coast');
+    expect(result).toContain('id="main-content"');
+    expect(result).toContain('aria-errormessage="name-error"');
+    expect(result).toContain('aria-errormessage="phone-error"');
     expect(result).toContain('311025368848');
     expect(result).toContain('0498 376 968');
     expect(result).toContain('marlon_adap@yahoo.com');

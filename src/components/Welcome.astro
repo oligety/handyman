@@ -155,7 +155,7 @@ const highlights = [
 		</div>
 	</header>
 
-	<main>
+	<main id="main-content" tabindex="-1">
 		<!-- Hero Section -->
 		<section class="hero-section" aria-labelledby="hero-title">
 			<div class="hero-background" aria-hidden="true">
@@ -455,8 +455,17 @@ const highlights = [
 								</ul>
 
 								<div class="card-footer">
-									<a href="#contact" class="card-link">
-										<span>Enquire about this service</span>
+									<a
+										href="#contact"
+										class="card-link"
+										data-service-select={svc.id}
+									>
+										<span
+											>Enquire about this service <span
+												class="visually-hidden"
+												>({svc.title})</span
+											></span
+										>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
 											width="16"
@@ -617,8 +626,13 @@ const highlights = [
 									id="name"
 									name="name"
 									required
+									autocomplete="name"
+									aria-errormessage="name-error"
 									placeholder="John Smith"
 								/>
+								<span id="name-error" class="error-msg" aria-live="polite"
+									>Please enter your name.</span
+								>
 							</div>
 							<div class="form-group">
 								<label for="phone">Phone Number *</label>
@@ -627,8 +641,13 @@ const highlights = [
 									id="phone"
 									name="phone"
 									required
+									autocomplete="tel"
+									aria-errormessage="phone-error"
 									placeholder="0412 345 678"
 								/>
+								<span id="phone-error" class="error-msg" aria-live="polite"
+									>Please enter a valid phone number.</span
+								>
 							</div>
 						</div>
 
@@ -639,6 +658,7 @@ const highlights = [
 									type="text"
 									id="suburb"
 									name="suburb"
+									autocomplete="address-level2"
 									placeholder="e.g. Gosford, Wyong, Terrigal, Erina, Woy Woy"
 								/>
 							</div>
@@ -1607,9 +1627,28 @@ const highlights = [
 		box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 	}
 
+	.form-group input:user-invalid,
+	.form-group textarea:user-invalid {
+		border-color: #ef4444;
+		box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+	}
+
+	.error-msg {
+		display: none;
+		color: #f87171;
+		font-size: 0.8rem;
+		margin-top: 0.25rem;
+		font-weight: 500;
+	}
+
+	.form-group input:user-invalid ~ .error-msg,
+	.form-group textarea:user-invalid ~ .error-msg {
+		display: block;
+	}
+
 	.form-group input::placeholder,
 	.form-group textarea::placeholder {
-		color: #475569;
+		color: #94a3b8;
 	}
 
 	.submit-btn {
@@ -1813,9 +1852,41 @@ const highlights = [
 <script>
 	const form = document.getElementById("quoteForm") as HTMLFormElement | null;
 	const alert = document.getElementById("formSuccess");
+	const serviceSelect = document.getElementById("service") as HTMLSelectElement | null;
+
 	form?.addEventListener("submit", (e) => {
 		e.preventDefault();
 		alert?.classList.add("visible");
 		form.reset();
+	});
+
+	// Accessible error state synchronizer: mirror :user-invalid to aria-invalid
+	const updateAriaState = (event: Event) => {
+		const input = event.target as HTMLElement | null;
+		if (!input?.matches?.("input, textarea, select")) return;
+		if (input.matches(":user-invalid")) {
+			input.setAttribute("aria-invalid", "true");
+		} else {
+			input.removeAttribute("aria-invalid");
+		}
+	};
+
+	document.addEventListener("blur", updateAriaState, true);
+	document.addEventListener("input", (event) => {
+		const input = event.target as HTMLElement | null;
+		if (!input?.matches?.("input, textarea, select")) return;
+		if (input.hasAttribute("aria-invalid")) {
+			updateAriaState(event);
+		}
+	});
+
+	// Customer experience enhancement: pre-select service dropdown when user clicks a card
+	document.querySelectorAll<HTMLAnchorElement>("[data-service-select]").forEach((link) => {
+		link.addEventListener("click", () => {
+			const targetService = link.getAttribute("data-service-select");
+			if (targetService && serviceSelect) {
+				serviceSelect.value = targetService;
+			}
+		});
 	});
 </script>

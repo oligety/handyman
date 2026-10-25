@@ -95,6 +95,7 @@ const structuredData = {
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
 		<slot />
 	</body>
 </html>
@@ -112,12 +113,54 @@ const structuredData = {
 		--color-primary-glow: rgba(245, 158, 11, 0.15);
 		--color-accent: #38bdf8;
 		--color-text: #f3f4f6;
-		--color-text-muted: #94a3b8;
-		--color-text-dim: #64748b;
+		--color-text-muted: #cbd5e1;
+		--color-text-dim: #94a3b8;
 	}
 
 	*, *::before, *::after {
 		box-sizing: border-box;
+	}
+
+	/* Skip Link for Keyboard Navigation (WCAG 2.4.1) */
+	.skip-link {
+		position: absolute;
+		top: -999px;
+		left: 1rem;
+		background: var(--color-primary);
+		color: #0b0f19;
+		padding: 0.75rem 1.25rem;
+		font-weight: 700;
+		border-radius: 8px;
+		z-index: 1000;
+		text-decoration: none;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+		transition: top 0.2s ease-in-out;
+	}
+
+	.skip-link:focus,
+	.skip-link:focus-visible {
+		top: 1rem;
+		outline: 3px solid #ffffff;
+		outline-offset: 2px;
+	}
+
+	/* Visually Hidden Utility for Screen Readers */
+	.visually-hidden:where(:not(:focus-within, :active)) {
+		position: absolute !important;
+		clip-path: inset(50%) !important;
+		overflow: hidden !important;
+		width: 1px !important;
+		height: 1px !important;
+		margin: -1px !important;
+		padding: 0 !important;
+		border: 0 !important;
+		white-space: nowrap !important;
+	}
+
+	/* Accessible Focus Visible Indicator across all interactive elements */
+	:where(a:any-link, button, input, select, textarea):focus-visible {
+		outline: 2px solid var(--color-primary);
+		outline-offset: 3px;
 	}
 
 	html {
