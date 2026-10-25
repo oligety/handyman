@@ -1,6 +1,6 @@
-# M5 Handyman
+# M. Adap Construction Pty Ltd
 
-A modern, high-performance website for **M5 Handyman**, providing professional handyman, carpentry, remedial defect, plastering, rendering, tiling, painting, and roofing services across the **Central Coast, New South Wales, Australia**.
+A modern, high-performance website for **M. Adap Construction Pty Ltd**, providing professional carpentry, building maintenance, remedial defect rectification, plastering, rendering, tiling, painting, and roofing services across the **Central Coast, New South Wales, Australia**.
 
 Built with [Astro](https://astro.build) in hybrid rendering mode (Static Site Generation + Server-Side Rendering) powered by Node.js 24 and containerized with Docker.
 
@@ -20,10 +20,10 @@ Built with [Astro](https://astro.build) in hybrid rendering mode (Static Site Ge
 
 ## 📍 Business Details
 
-- **Business Name**: M5 Handyman
+- **Business Name**: M. Adap Construction Pty Ltd (Legal entity: `M. ADAP CONSTRUCTION PTY LTD`)
 - **Service Area**: Central Coast, New South Wales, Australia (Gosford, Wyong, Terrigal, Erina, Woy Woy, and surrounding areas)
 - **NSW Contractor Licence**: `342519C`
-- **Australian Business Number (ABN)**: `311025368848`
+- **Australian Business Number (ABN)**: `49 702 564 458`
 - **Mobile / Direct Phone**: `0498 376 968`
 - **Email**: `marlon_adap@yahoo.com`
 
@@ -66,8 +66,7 @@ handyman/
 │   └── robots.txt            # Search crawler directives & sitemap reference
 ├── src/
 │   ├── assets/
-│   │   ├── logo-m5-handyman.jpeg   # Source logo asset
-│   │   └── logo-m5-handyman.png    # High-res transparent emblem
+│   │   └── logo-m-adap.jpg   # Brand logo and emblem asset
 │   ├── components/
 │   │   └── Welcome.astro     # Landing page (hero, services, why choose us, quote form, footer)
 │   ├── layouts/

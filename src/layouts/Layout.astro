@@ -5,8 +5,8 @@ interface Props {
 }
 
 const {
-	title = 'M5 Handyman – Professional Carpentry, Repairs & Building Services | Central Coast NSW',
-	description = 'M5 Handyman provides expert carpentry, remedial defects rectification, plastering, rendering, tiling, painting, and roofing services across the Central Coast, New South Wales, Australia. Quality craftsmanship and free quotes.'
+	title = 'M. Adap Construction Pty Ltd – Carpentry, Repairs & Building Services | Central Coast NSW',
+	description = 'M. Adap Construction Pty Ltd provides expert carpentry, remedial defects rectification, plastering, rendering, tiling, painting, and roofing services across the Central Coast, New South Wales, Australia. Quality craftsmanship and free quotes.'
 } = Astro.props;
 
 const siteURL = Astro.site ?? new URL('https://m5handyman.com');
@@ -16,12 +16,13 @@ const socialImageURL = new URL('/favicon.png', siteURL);
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'HomeAndConstructionBusiness',
-	name: 'M5 Handyman',
+	name: 'M. Adap Construction Pty Ltd',
+	legalName: 'M. ADAP CONSTRUCTION PTY LTD',
 	description: description,
 	url: canonicalURL.toString(),
 	telephone: '0498 376 968',
 	email: 'marlon_adap@yahoo.com',
-	taxID: '311025368848',
+	taxID: '49702564458',
 	hasCredential: {
 		'@type': 'EducationalOccupationalCredential',
 		credentialCategory: 'license',
@@ -71,7 +72,7 @@ const structuredData = {
 		<link rel="canonical" href={canonicalURL} />
 
 		<!-- Open Graph / Facebook -->
-		<meta property="og:site_name" content="M5 Handyman" />
+		<meta property="og:site_name" content="M. Adap Construction Pty Ltd" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />

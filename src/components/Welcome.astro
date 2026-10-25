@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import logoImg from "../assets/logo-m5-handyman.png";
+import logoImg from "../assets/logo-m-adap.jpg";
 
-// M5 Handyman landing page component
+// M. Adap Construction Pty Ltd landing page component
 const services = [
 	{
 		id: "carpentry",
@@ -114,7 +114,7 @@ const services = [
 const highlights = [
 	{
 		label: "Licensed & ABN Registered",
-		detail: "NSW Lic 342519C • ABN 311025368848. Fully insured and qualified for complete peace of mind.",
+		detail: "NSW Lic 342519C • ABN 49 702 564 458. Fully insured and qualified for complete peace of mind.",
 	},
 	{
 		label: "Attention to Detail",
@@ -135,21 +135,25 @@ const highlights = [
 	<!-- Navigation -->
 	<header class="navbar" id="top">
 		<div class="nav-container">
-			<a href="#top" class="brand-logo" aria-label="M5 Handyman Homepage">
+			<a
+				href="#top"
+				class="brand-logo"
+				aria-label="M. Adap Construction Pty Ltd Homepage"
+			>
 				<Image
 					src={logoImg}
-					alt="M5 Handyman Logo"
+					alt="M. Adap Construction Pty Ltd Logo"
 					width={42}
 					height={42}
 					class="nav-logo-badge"
 				/>
 				<span class="logo-text"
-					>M5 Handyman<span class="dot">.</span></span
+					>M. Adap<span class="logo-subtext">Construction</span></span
 				>
 			</a>
 			<nav class="nav-menu" aria-label="Primary Navigation">
 				<a href="#services" class="nav-link">Services</a>
-				<a href="#about" class="nav-link">Why M5</a>
+				<a href="#about" class="nav-link">Why Choose Us</a>
 				<a href="#contact" class="nav-btn">Get Free Quote</a>
 			</nav>
 		</div>
@@ -169,7 +173,8 @@ const highlights = [
 					<div class="pill-badge">
 						<span class="pill-dot"></span>
 						<span
-							>Central Coast NSW & Surrounding Areas • Fast Response</span
+							>Central Coast NSW & Surrounding Areas • Fast
+							Response</span
 						>
 					</div>
 
@@ -181,10 +186,11 @@ const highlights = [
 					</h1>
 
 					<p class="hero-subtitle">
-						M5 Handyman delivers top-tier carpentry, remedial defect
-						rectification, plastering, rendering, tiling, painting,
-						and roofing repairs for residential and strata
-						properties across the Central Coast, New South Wales.
+						M. Adap Construction Pty Ltd delivers top-tier
+						carpentry, remedial defect rectification, plastering,
+						rendering, tiling, painting, and roofing repairs for
+						residential and strata properties across the Central
+						Coast, New South Wales.
 					</p>
 
 					<div class="hero-cta-group">
@@ -259,20 +265,22 @@ const highlights = [
 				<div class="hero-visual-column">
 					<div class="emblem-card">
 						<div class="emblem-glow" aria-hidden="true"></div>
-						<Image
-							src={logoImg}
-							alt="M5 Handyman Service and Repairs official badge"
-							width={440}
-							height={440}
-							loading="eager"
-							fetchpriority="high"
-							class="hero-emblem-img"
-						/>
+						<div class="logo-frame">
+							<Image
+								src={logoImg}
+								alt="M. Adap Construction Pty Ltd official emblem"
+								width={380}
+								height={380}
+								loading="eager"
+								fetchpriority="high"
+								class="hero-emblem-img"
+							/>
+						</div>
 						<div class="emblem-floating-tag">
 							<span class="star-rating">★★★★★</span>
 							<span class="tag-title">Licensed & Reliable</span>
 							<span class="tag-subtitle"
-								>Carpentry • Remedial • Repairs</span
+								>NSW Lic 342519C • ABN 49 702 564 458</span
 							>
 						</div>
 					</div>
@@ -294,9 +302,9 @@ const highlights = [
 					</h2>
 					<p class="section-description">
 						From timber work and plastering to complete defect
-						rectification, M5 Handyman handles jobs of all sizes
-						with high-end tools, premium materials, and meticulous
-						precision.
+						rectification, M. Adap Construction Pty Ltd handles jobs
+						of all sizes with high-end tools, premium materials, and
+						meticulous precision.
 					</p>
 				</div>
 
@@ -460,12 +468,12 @@ const highlights = [
 										class="card-link"
 										data-service-select={svc.id}
 									>
-										<span
-											>Enquire about this service <span
-												class="visually-hidden"
-												>({svc.title})</span
-											></span
-										>
+										<span>
+											Enquire about this service{" "}
+											<span class="visually-hidden">
+												({svc.title})
+											</span>
+										</span>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
 											width="16"
@@ -490,7 +498,7 @@ const highlights = [
 			</div>
 		</section>
 
-		<!-- Why Choose M5 Section -->
+		<!-- Why Choose M. Adap Construction Section -->
 		<section
 			id="about"
 			class="section about-section"
@@ -498,9 +506,9 @@ const highlights = [
 		>
 			<div class="content-container">
 				<div class="section-header">
-					<p class="section-tag">The M5 Standard</p>
+					<p class="section-tag">The M. Adap Standard</p>
 					<h2 id="why-title" class="section-title">
-						Why Homeowners & Strata Trust M5 Handyman
+						Why Homeowners & Strata Trust M. Adap Construction
 					</h2>
 					<p class="section-description">
 						We treat your home like our own. Prompt scheduling,
@@ -631,7 +639,7 @@ const highlights = [
 										>Business Registration:</span
 									>
 									<span class="direct-val"
-										>ABN 311025368848</span
+										>ABN 49 702 564 458</span
 									>
 								</div>
 							</div>
@@ -651,7 +659,10 @@ const highlights = [
 									aria-errormessage="name-error"
 									placeholder="John Smith"
 								/>
-								<span id="name-error" class="error-msg" aria-live="polite"
+								<span
+									id="name-error"
+									class="error-msg"
+									aria-live="polite"
 									>Please enter your name.</span
 								>
 							</div>
@@ -666,7 +677,10 @@ const highlights = [
 									aria-errormessage="phone-error"
 									placeholder="0412 345 678"
 								/>
-								<span id="phone-error" class="error-msg" aria-live="polite"
+								<span
+									id="phone-error"
+									class="error-msg"
+									aria-live="polite"
 									>Please enter a valid phone number.</span
 								>
 							</div>
@@ -749,7 +763,12 @@ const highlights = [
 							>
 						</button>
 
-						<div id="formSuccess" class="form-alert" role="alert" tabindex="-1">
+						<div
+							id="formSuccess"
+							class="form-alert"
+							role="alert"
+							tabindex="-1"
+						>
 							<strong>Thank you!</strong> Your quote request has been
 							received. We will call you back shortly.
 						</div>
@@ -763,16 +782,21 @@ const highlights = [
 	<footer class="site-footer">
 		<div class="content-container footer-content">
 			<div class="footer-brand">
-				<a href="#top" class="brand-logo" aria-label="M5 Handyman">
+				<a
+					href="#top"
+					class="brand-logo"
+					aria-label="M. Adap Construction Pty Ltd"
+				>
 					<Image
 						src={logoImg}
-						alt="M5 Handyman Logo"
+						alt="M. Adap Construction Pty Ltd Logo"
 						width={48}
 						height={48}
 						class="footer-logo-badge"
 					/>
 					<span class="logo-text"
-						>M5 Handyman<span class="dot">.</span></span
+						>M. Adap<span class="logo-subtext">Construction</span
+						></span
 					>
 				</a>
 				<p class="footer-tagline">
@@ -812,10 +836,12 @@ const highlights = [
 		<div class="footer-bottom">
 			<div class="content-container footer-bottom-inner">
 				<p>
-					&copy; {new Date().getFullYear()} M5 Handyman • Lic 342519C • ABN 311025368848. All rights reserved.
+					&copy; {new Date().getFullYear()} M. Adap Construction Pty Ltd
+					• Lic 342519C • ABN 49 702 564 458. All rights reserved.
 				</p>
 				<p class="footer-note">
-					Quality craftsmanship across Central Coast NSW. Fast, clean & reliable.
+					Quality craftsmanship across Central Coast NSW. Fast, clean
+					& reliable.
 				</p>
 			</div>
 		</div>
@@ -901,21 +927,42 @@ const highlights = [
 		gap: 0.75rem;
 		text-decoration: none;
 		color: var(--color-text);
+	}
+
+	.logo-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+		font-size: 1.15rem;
 		font-weight: 800;
-		font-size: 1.3rem;
-		letter-spacing: -0.02em;
+		letter-spacing: 0.02em;
+		color: var(--color-text);
+	}
+
+	.logo-subtext {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		color: var(--color-primary);
 	}
 
 	.nav-logo-badge {
-		width: 40px;
-		height: 40px;
+		width: 42px;
+		height: 42px;
 		object-fit: contain;
-		filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
-		transition: transform 0.2s ease;
+		background: #ffffff;
+		border-radius: 8px;
+		padding: 2px;
+		border: 1px solid rgba(179, 139, 58, 0.45);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease;
 	}
 
 	.brand-logo:hover .nav-logo-badge {
 		transform: scale(1.06);
+		border-color: rgba(245, 158, 11, 0.8);
 	}
 
 	.dot {
@@ -994,7 +1041,7 @@ const highlights = [
 	/* Hero Section */
 	.hero-section {
 		position: relative;
-		padding-block: 5rem 4.5rem;
+		padding-block: 2rem 4.5rem;
 		overflow: hidden;
 		background: radial-gradient(
 			circle at 65% 20%,
@@ -1246,14 +1293,31 @@ const highlights = [
 		pointer-events: none;
 	}
 
+	.logo-frame {
+		position: relative;
+		z-index: 1;
+		background: #ffffff;
+		border: 2px solid rgba(179, 139, 58, 0.55);
+		border-radius: 24px;
+		padding: 1.25rem;
+		box-shadow:
+			0 20px 48px rgba(0, 0, 0, 0.6),
+			0 0 32px rgba(179, 139, 58, 0.2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 360px;
+		width: 100%;
+	}
+
 	.hero-emblem-img {
 		position: relative;
 		z-index: 1;
 		width: 100%;
-		max-width: 400px;
 		height: auto;
-		filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.7))
-			drop-shadow(0 0 24px rgba(245, 158, 11, 0.25));
+		display: block;
+		object-fit: contain;
+		border-radius: 12px;
 	}
 
 	.emblem-floating-tag {
@@ -1749,7 +1813,11 @@ const highlights = [
 		width: 44px;
 		height: 44px;
 		object-fit: contain;
-		filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
+		background: #ffffff;
+		border-radius: 8px;
+		padding: 2px;
+		border: 1px solid rgba(179, 139, 58, 0.45);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 	}
 
 	.footer-tagline {
@@ -1900,7 +1968,9 @@ const highlights = [
 <script>
 	const form = document.getElementById("quoteForm") as HTMLFormElement | null;
 	const alert = document.getElementById("formSuccess");
-	const serviceSelect = document.getElementById("service") as HTMLSelectElement | null;
+	const serviceSelect = document.getElementById(
+		"service",
+	) as HTMLSelectElement | null;
 
 	form?.addEventListener("submit", (e) => {
 		e.preventDefault();
@@ -1932,12 +2002,14 @@ const highlights = [
 	});
 
 	// Customer experience enhancement: pre-select service dropdown when user clicks a card
-	document.querySelectorAll<HTMLAnchorElement>("[data-service-select]").forEach((link) => {
-		link.addEventListener("click", () => {
-			const targetService = link.getAttribute("data-service-select");
-			if (targetService && serviceSelect) {
-				serviceSelect.value = targetService;
-			}
+	document
+		.querySelectorAll<HTMLAnchorElement>("[data-service-select]")
+		.forEach((link) => {
+			link.addEventListener("click", () => {
+				const targetService = link.getAttribute("data-service-select");
+				if (targetService && serviceSelect) {
+					serviceSelect.value = targetService;
+				}
+			});
 		});
-	});
 </script>

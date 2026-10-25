@@ -11,32 +11,32 @@ describe('Layout component', () => {
       slots: { default: '<h1>Hello Handyman</h1>' },
     });
 
-    expect(result).toContain('<title>M5 Handyman');
+    expect(result).toContain('<title>M. Adap Construction Pty Ltd');
     expect(result).toContain('Central Coast');
     expect(result).toContain('Skip to main content');
     expect(result).toContain('<h1>Hello Handyman</h1>');
     expect(result).toContain('rel="canonical"');
     expect(result).toContain('HomeAndConstructionBusiness');
-    expect(result).toContain('311025368848');
+    expect(result).toContain('49702564458');
     expect(result).toContain('342519C');
     expect(result).toContain('0498 376 968');
     expect(result).toContain('marlon_adap@yahoo.com');
-    expect(result).toContain('property="og:site_name" content="M5 Handyman"');
+    expect(result).toContain('property="og:site_name" content="M. Adap Construction Pty Ltd"');
   });
 });
 
 describe('Welcome landing page component', () => {
-  it('renders M5 Handyman branding and services', async () => {
+  it('renders M. Adap Construction branding and services', async () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Welcome);
 
-    expect(result).toContain('M5');
-    expect(result).toContain('Handyman');
+    expect(result).toContain('M. Adap');
+    expect(result).toContain('Construction');
     expect(result).toContain('Central Coast');
     expect(result).toContain('id="main-content"');
     expect(result).toContain('aria-errormessage="name-error"');
     expect(result).toContain('aria-errormessage="phone-error"');
-    expect(result).toContain('311025368848');
+    expect(result).toContain('49 702 564 458');
     expect(result).toContain('342519C');
     expect(result).toContain('0498 376 968');
     expect(result).toContain('marlon_adap@yahoo.com');
