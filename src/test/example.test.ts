@@ -16,6 +16,9 @@ describe('Layout component', () => {
     expect(result).toContain('<h1>Hello Handyman</h1>');
     expect(result).toContain('rel="canonical"');
     expect(result).toContain('HomeAndConstructionBusiness');
+    expect(result).toContain('311025368848');
+    expect(result).toContain('0498 376 968');
+    expect(result).toContain('marlon_adap@yahoo.com');
     expect(result).toContain('property="og:site_name" content="M5 Handyman"');
   });
 });
@@ -28,6 +31,9 @@ describe('Welcome landing page component', () => {
     expect(result).toContain('M5');
     expect(result).toContain('Handyman');
     expect(result).toContain('Central Coast');
+    expect(result).toContain('311025368848');
+    expect(result).toContain('0498 376 968');
+    expect(result).toContain('marlon_adap@yahoo.com');
     expect(result).toContain('Carpentry Work');
     expect(result).toContain('Remedial &amp; Defects Work');
     expect(result).toContain('Plastering &amp; Rendering');
