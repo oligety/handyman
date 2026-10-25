@@ -5,14 +5,17 @@ import Welcome from '../components/Welcome.astro';
 import { GET } from '../pages/api/health';
 
 describe('Layout component', () => {
-  it('renders title and default slot content', async () => {
+  it('renders title, canonical URL, and SEO structured data', async () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Layout, {
       slots: { default: '<h1>Hello Handyman</h1>' },
     });
 
-    expect(result).toContain('<title>M5 Handyman</title>');
+    expect(result).toContain('<title>M5 Handyman');
     expect(result).toContain('<h1>Hello Handyman</h1>');
+    expect(result).toContain('rel="canonical"');
+    expect(result).toContain('HomeAndConstructionBusiness');
+    expect(result).toContain('property="og:site_name" content="M5 Handyman"');
   });
 });
 

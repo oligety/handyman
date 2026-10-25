@@ -5,9 +5,48 @@ interface Props {
 }
 
 const {
-	title = 'M5 Handyman',
-	description = 'M5 Handyman – Professional carpentry, remedial repairs, plastering, rendering, tiling, painting, and roofing services. Quality craftsmanship, prompt service, and free quotes.'
+	title = 'M5 Handyman – Professional Carpentry, Repairs & Building Services',
+	description = 'M5 Handyman provides expert carpentry, remedial defects rectification, plastering, rendering, tiling, painting, and roofing services across Sydney. Quality craftsmanship and free quotes.'
 } = Astro.props;
+
+const siteURL = Astro.site ?? new URL('https://m5handyman.com');
+const canonicalURL = new URL(Astro.url.pathname, siteURL);
+const socialImageURL = new URL('/favicon.png', siteURL);
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'HomeAndConstructionBusiness',
+	name: 'M5 Handyman',
+	description: description,
+	url: canonicalURL.toString(),
+	telephone: '0400 000 000',
+	email: 'contact@m5handyman.com',
+	image: socialImageURL.toString(),
+	priceRange: '$$',
+	areaServed: [
+		{
+			'@type': 'AdministrativeArea',
+			name: 'Sydney Metro'
+		},
+		{
+			'@type': 'AdministrativeArea',
+			name: 'Greater Western Sydney'
+		}
+	],
+	hasOfferCatalog: {
+		'@type': 'OfferCatalog',
+		name: 'Handyman & Trade Services',
+		itemListElement: [
+			{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Carpentry Work' } },
+			{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Remedial & Defects Work' } },
+			{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'General Repairs & Maintenance' } },
+			{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Plastering & Rendering' } },
+			{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tiling & Grouting' } },
+			{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Painting & Finishing' } },
+			{ '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Roofing & Gutters' } }
+		]
+	}
+};
 ---
 
 <!doctype html>
@@ -15,17 +54,39 @@ const {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:site_name" content="M5 Handyman" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta property="og:image" content={socialImageURL} />
+		<meta property="og:locale" content="en_AU" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageURL} />
+
+		<!-- Icons -->
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="apple-touch-icon" href="/favicon.png" />
+
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+
+		<!-- JSON-LD Structured Data for Local Business SEO -->
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body>
 		<slot />
@@ -79,5 +140,15 @@ const {
 
 	button, input, textarea, select {
 		font-family: inherit;
+	}
+
+	/* Accessibility: Respect Reduced Motion Preferences */
+	@media (prefers-reduced-motion: reduce) {
+		*, *::before, *::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
 	}
 </style>

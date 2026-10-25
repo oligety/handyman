@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://m5handyman.com/sitemap-index.xml
