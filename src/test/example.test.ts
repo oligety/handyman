@@ -18,6 +18,7 @@ describe('Layout component', () => {
     expect(result).toContain('rel="canonical"');
     expect(result).toContain('HomeAndConstructionBusiness');
     expect(result).toContain('311025368848');
+    expect(result).toContain('342519C');
     expect(result).toContain('0498 376 968');
     expect(result).toContain('marlon_adap@yahoo.com');
     expect(result).toContain('property="og:site_name" content="M5 Handyman"');
@@ -36,6 +37,7 @@ describe('Welcome landing page component', () => {
     expect(result).toContain('aria-errormessage="name-error"');
     expect(result).toContain('aria-errormessage="phone-error"');
     expect(result).toContain('311025368848');
+    expect(result).toContain('342519C');
     expect(result).toContain('0498 376 968');
     expect(result).toContain('marlon_adap@yahoo.com');
     expect(result).toContain('Carpentry Work');

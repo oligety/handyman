@@ -22,6 +22,7 @@ Built with [Astro](https://astro.build) in hybrid rendering mode (Static Site Ge
 
 - **Business Name**: M5 Handyman
 - **Service Area**: Central Coast, New South Wales, Australia (Gosford, Wyong, Terrigal, Erina, Woy Woy, and surrounding areas)
+- **NSW Contractor Licence**: `342519C`
 - **Australian Business Number (ABN)**: `311025368848`
 - **Mobile / Direct Phone**: `0498 376 968`
 - **Email**: `marlon_adap@yahoo.com`
