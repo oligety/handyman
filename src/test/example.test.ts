@@ -12,6 +12,7 @@ describe('Layout component', () => {
     });
 
     expect(result).toContain('<title>M5 Handyman');
+    expect(result).toContain('Central Coast');
     expect(result).toContain('<h1>Hello Handyman</h1>');
     expect(result).toContain('rel="canonical"');
     expect(result).toContain('HomeAndConstructionBusiness');
@@ -26,6 +27,7 @@ describe('Welcome landing page component', () => {
 
     expect(result).toContain('M5');
     expect(result).toContain('Handyman');
+    expect(result).toContain('Central Coast');
     expect(result).toContain('Carpentry Work');
     expect(result).toContain('Remedial &amp; Defects Work');
     expect(result).toContain('Plastering &amp; Rendering');

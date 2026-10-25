@@ -5,8 +5,8 @@ interface Props {
 }
 
 const {
-	title = 'M5 Handyman – Professional Carpentry, Repairs & Building Services',
-	description = 'M5 Handyman provides expert carpentry, remedial defects rectification, plastering, rendering, tiling, painting, and roofing services across Sydney. Quality craftsmanship and free quotes.'
+	title = 'M5 Handyman – Professional Carpentry, Repairs & Building Services | Central Coast NSW',
+	description = 'M5 Handyman provides expert carpentry, remedial defects rectification, plastering, rendering, tiling, painting, and roofing services across the Central Coast, New South Wales, Australia. Quality craftsmanship and free quotes.'
 } = Astro.props;
 
 const siteURL = Astro.site ?? new URL('https://m5handyman.com');
@@ -26,13 +26,18 @@ const structuredData = {
 	areaServed: [
 		{
 			'@type': 'AdministrativeArea',
-			name: 'Sydney Metro'
+			name: 'Central Coast, New South Wales'
 		},
 		{
 			'@type': 'AdministrativeArea',
-			name: 'Greater Western Sydney'
+			name: 'Central Coast NSW, Australia'
 		}
 	],
+	address: {
+		'@type': 'PostalAddress',
+		addressRegion: 'NSW',
+		addressCountry: 'AU'
+	},
 	hasOfferCatalog: {
 		'@type': 'OfferCatalog',
 		name: 'Handyman & Trade Services',
