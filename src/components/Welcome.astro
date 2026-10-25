@@ -728,7 +728,7 @@ const highlights = [
 							>
 						</button>
 
-						<div id="formSuccess" class="form-alert" role="alert">
+						<div id="formSuccess" class="form-alert" role="alert" tabindex="-1">
 							<strong>Thank you!</strong> Your quote request has been
 							received. We will call you back shortly.
 						</div>
@@ -912,11 +912,16 @@ const highlights = [
 		text-decoration: none;
 		font-size: 0.95rem;
 		font-weight: 500;
-		transition: color 0.2s ease;
+		padding: 0.4rem 0.75rem;
+		border-radius: 6px;
+		transition:
+			color 0.2s ease,
+			background-color 0.2s ease;
 	}
 
 	.nav-link:hover {
 		color: var(--color-text);
+		background-color: rgba(255, 255, 255, 0.05);
 	}
 
 	.nav-btn {
@@ -939,6 +944,10 @@ const highlights = [
 	.nav-btn:hover {
 		transform: translateY(-1px);
 		box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+	}
+
+	.nav-btn:active {
+		transform: scale(0.97);
 	}
 
 	@media (max-width: 640px) {
@@ -1128,6 +1137,10 @@ const highlights = [
 		text-decoration: none;
 		transition: all 0.2s ease;
 		cursor: pointer;
+	}
+
+	.btn:active {
+		transform: scale(0.98);
 	}
 
 	.btn-primary {
@@ -1460,6 +1473,16 @@ const highlights = [
 		border-radius: 14px;
 		padding: 1.85rem;
 		position: relative;
+		transition:
+			transform 0.25s ease,
+			border-color 0.25s ease,
+			box-shadow 0.25s ease;
+	}
+
+	.highlight-card:hover {
+		transform: translateY(-3px);
+		border-color: rgba(245, 158, 11, 0.35);
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 	}
 
 	.highlight-number {
@@ -1802,6 +1825,10 @@ const highlights = [
 			transition: transform 0.15s ease;
 		}
 
+		.mobile-bar-btn:active {
+			transform: scale(0.97);
+		}
+
 		.mobile-call-btn {
 			background: rgba(255, 255, 255, 0.08);
 			color: #f3f4f6;
@@ -1856,7 +1883,10 @@ const highlights = [
 
 	form?.addEventListener("submit", (e) => {
 		e.preventDefault();
-		alert?.classList.add("visible");
+		if (alert) {
+			alert.classList.add("visible");
+			alert.focus();
+		}
 		form.reset();
 	});
 
